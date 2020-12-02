@@ -19,7 +19,7 @@ namespace AOC1.Tests
         int targetSum = 2020;
 
         [Fact]
-        public void ShouldFindSummable2020()
+        public void ShouldTwoFindSummable2020()
         {
             AOC aoc = new AOC();
             int[] set1values = aoc.GetSummableValues(testset1, targetSum);
@@ -31,6 +31,15 @@ namespace AOC1.Tests
         }
 
         [Fact]
+        public void ShouldFindThreeSummable2020()
+        {
+            AOC aoc = new AOC();
+            int[] set1values = aoc.GetThreeSummableValues(testset1, targetSum);
+            Console.WriteLine(set1values);
+            Assert.Equal(targetSum, set1values[0] + set1values[1] + set1values[2]);
+        }
+
+        [Fact]
         public void ShouldMultiplyCorrectly()
         {
             AOC aoc = new AOC();
@@ -39,6 +48,12 @@ namespace AOC1.Tests
 
             int testvalue2 = aoc.MultiplySummableValues(testset2, targetSum);
             Assert.Equal(996996, testvalue2);
+
+            int testvalue3 = aoc.MultiplyThreeSummableValues(testset1, targetSum);
+            Assert.Equal(241861950, testvalue3);
+
+            int testvalue4 = aoc.MultiplyThreeSummableValues(testset2, targetSum);
+            Assert.Equal(9210402, testvalue4);
         }
     }
 }
