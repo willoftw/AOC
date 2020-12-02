@@ -23,5 +23,20 @@ namespace AOC2.Tests
                 Assert.Equal(666, aoc.validPasswords);
             }
         }
+
+
+        [Fact]
+        public void ShouldValidateNumberOfCorrectPasswordsAccordingToSecondRule()
+        {
+            using (AOC aoc = new AOC(testset1, shouldUseSecondRule: true))
+            {
+                Assert.Equal(1, aoc.validPasswords);
+            }
+
+            using (AOC aoc = new AOC(testset2, shouldUseSecondRule: true))
+            {
+                Assert.Equal(670, aoc.validPasswords);
+            }
+        }
     }
 }

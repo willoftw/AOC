@@ -8,12 +8,12 @@ namespace AOC2
         public List<PasswordRule> passwords { get; set; } 
         public int validPasswords=0;
 
-        public AOC(List<String> values)
+        public AOC(List<String> values, bool shouldUseSecondRule = false)
         {
-            this.passwords = ParseInput(values);
+            this.passwords = ParseInput(values,shouldUseSecondRule);
         }
 
-        public List<PasswordRule> ParseInput(List<String> values)
+        public List<PasswordRule> ParseInput(List<String> values, bool shouldUseSecondRule = false)
         {
             List<PasswordRule> ret = new List<PasswordRule>();
             //parse into PaswordRules
@@ -27,7 +27,7 @@ namespace AOC2
                 pr.max = int.Parse(minmax[1]);
                 pr.allowedChar = split[1].ToCharArray()[0];
                 pr.pass = split[2];
-                pr.valid = pr.checkPassword();
+                pr.valid = shouldUseSecondRule? pr.checkPasswordSecondRule(): pr.checkPassword();
                 validPasswords += pr.valid ? 1 : 0;
                 ret.Add(pr);
 
@@ -58,6 +58,19 @@ namespace AOC2
                     allowedCharCount++;
             }
             return (allowedCharCount >= min && allowedCharCount <= max) ? true : false;
+        }
+
+        public bool checkPasswordSecondRule()
+        {
+            int allowedCharCount = 0;
+            char[] passchars = pass.ToCharArray();
+            if ((passchars[min-1] == allowedChar) ^ (passchars[max-1] == allowedChar))
+            {
+                return true;
+            }
+            return false;
+
+         
         }
     }
 }
