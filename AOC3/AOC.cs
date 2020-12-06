@@ -16,7 +16,7 @@ namespace AOC3
             {
                 try
                 {
-                    Console.WriteLine($"{coords[0]},{coords[1]}");
+                    //Console.WriteLine($"{coords[0]},{coords[1]}");
                     coords[0] += ySteps;
                     coords[1] += xSteps;
                     if (coords[0]>=lineCount){
@@ -27,7 +27,7 @@ namespace AOC3
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine(e.ToString());
+                    //Console.WriteLine(e.ToString());
                     return treeCount;
                 }
                 

@@ -25,7 +25,7 @@ namespace AOC4
                 else
                     combinedBatch += " " + readText[i];
             }
-            Console.WriteLine(combinedBatch);
+            //Console.WriteLine(combinedBatch);
             List<string> parseable = new List<string>(combinedBatch.Split("∞"));
 
             foreach (string parse in parseable)
@@ -42,7 +42,7 @@ namespace AOC4
                     if (string.IsNullOrWhiteSpace(value))
                         continue;
                     string[] keyvalues = value.Split(":");
-                    Console.WriteLine(keyvalues);
+                    //Console.WriteLine(keyvalues);
 
                     keyvalues[1] = string.IsNullOrWhiteSpace(keyvalues[1]) ? "" : keyvalues[1];
                     //byr(Birth Year)
@@ -82,7 +82,7 @@ namespace AOC4
                         case "":
                             break;
                     }
-                    Console.WriteLine(entry);
+                    //Console.WriteLine(entry);
 
                 }
                 passports.Add(entry);

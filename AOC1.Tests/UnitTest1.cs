@@ -23,10 +23,10 @@ namespace AOC1.Tests
         {
             AOC aoc = new AOC();
             int[] set1values = aoc.GetSummableValues(testset1, targetSum);
-            Console.WriteLine(set1values);
+            //Console.WriteLine(set1values);
             Assert.Equal(targetSum, set1values[0] + set1values[1]);
             int[] set2values = aoc.GetSummableValues(testset2, targetSum);
-            Console.WriteLine(set2values);
+            //Console.WriteLine(set2values);
             Assert.Equal(targetSum, set2values[0] + set2values[1]);
         }
 
@@ -35,7 +35,7 @@ namespace AOC1.Tests
         {
             AOC aoc = new AOC();
             int[] set1values = aoc.GetThreeSummableValues(testset1, targetSum);
-            Console.WriteLine(set1values);
+            //Console.WriteLine(set1values);
             Assert.Equal(targetSum, set1values[0] + set1values[1] + set1values[2]);
         }
 
