@@ -1,3 +1,5 @@
+using System.Reflection.Metadata;
+using System.Threading.Tasks.Dataflow;
 using System;
 using Xunit;
 using AOC5;
@@ -66,6 +68,7 @@ namespace AOC5.Tests
             }
         }
 
+        //1024 possiblities
         [Fact]
         public void ShouldCalculateHighestSeatID()
         {
@@ -76,7 +79,42 @@ namespace AOC5.Tests
                 seatids.Add(aoc.Decode(s)[2]);
             }
             Assert.Equal(926, seatids.Max());
+
+            //used this txtfile to sort the missing value.
+            // using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"./WriteLines2.txt"))
+            // {
+            //     foreach (int line in seatids)
+            //     {
+            //             file.WriteLine(""+line);
+                
+            //     }
+            // }
             
+        }
+
+        //657
+        [Fact]
+        public void ShouldFindMissingSeatNumber()
+        {
+            using(AOC aoc = new AOC())
+            {
+                foreach(string s in input)
+                {
+                    seatids.Add(aoc.Decode(s)[2]);
+                }
+                var ascendingOrder = seatids.OrderBy(i => i);
+                int count = 80; // 80 being the lowest id possible
+                foreach(var value in ascendingOrder)
+                {
+                    if(count!=value)
+                    {
+                        //Console.WriteLine($"Found missing {count}");
+                        break;
+                    }
+                    count++;
+                }
+                Assert.Equal(657,count);
+            }
         }
     }
 }

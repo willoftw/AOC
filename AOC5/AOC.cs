@@ -27,7 +27,7 @@ namespace AOC5
             for(int i = 0; i<7 ; i++)
             {
                 int r = Range(rowrange);
-                Console.WriteLine(chars[i]);
+                //Console.WriteLine(chars[i]);
                 switch(chars[i])
                 {
                     case 'F':
@@ -39,13 +39,13 @@ namespace AOC5
                         rowrange[1] = rowrange[1];
                         break;
                 }
-                Console.WriteLine($" row {rowrange[0]},{rowrange[1]}");
+                //Console.WriteLine($" row {rowrange[0]},{rowrange[1]}");
             }
             int[] colrange = new int[] {0,7} ;
             for(int i = 7; i<10 ; i++)
             {
                 int r = Range(colrange);
-                Console.WriteLine(chars[i]);
+                //Console.WriteLine(chars[i]);
                 switch(chars[i])
                 {
                     case 'L':
@@ -57,7 +57,7 @@ namespace AOC5
                         colrange[1] = colrange[1];
                         break;
                 }
-                Console.WriteLine($" col {colrange[0]},{colrange[1]}");
+                //Console.WriteLine($" col {colrange[0]},{colrange[1]}");
             }
             
             return new int[] {rowrange[1]-1,colrange[1],(rowrange[1]-1)*8+colrange[1]};
