@@ -23,15 +23,20 @@ namespace AOC6.Tests
             StreamReader reader = File.OpenText(filename);
             string line = "";
             string group = "";
+            int groupCount = 0;
             while ((line = reader.ReadLine()) != null)
             {
                 group+=line.TrimEnd( '\r', '\n' );
                 if (String.IsNullOrWhiteSpace(line)){
-                    ret.Add(group);
+                    ret.Add($"{groupCount}{group}");
                     group = "";
+                    groupCount = 0;
                 }
+                else
+                    groupCount++;
+                
             }
-            ret.Add(group);
+            ret.Add($"{groupCount}{group}");
             reader.Close();
 
             return ret;
@@ -48,11 +53,29 @@ namespace AOC6.Tests
         }
 
         [Fact]
-        public void ShouldMultiplyAllDistinctValuesCorrectly()
+        public void ShouldAddAllDistinctValuesCorrectly()
         {
             using (AOC aoc = new AOC())
             {
                 List<int> distinctAnswers = aoc.CountDistinctAnswers(input_2);
+                //int ans = distinctAnswers.Aggregate(1, (x,y) => x * y);
+                int prod = 0;
+                foreach (int value in distinctAnswers)
+                {
+                    if (value == 0)
+                        continue;
+                    prod += value;
+                }
+                Assert.Equal(7128,prod);
+            }
+        }
+
+        [Fact]
+        public void ShouldAddAllDuplicateValuesCorrectly()
+        {
+            using (AOC aoc = new AOC())
+            {
+                List<int> distinctAnswers = aoc.CountDuplicateAnswers(input_2);
                 //int ans = distinctAnswers.Aggregate(1, (x,y) => x * y);
                 int prod = 0;
                 foreach (int value in distinctAnswers)
