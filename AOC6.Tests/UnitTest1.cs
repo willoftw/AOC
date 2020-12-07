@@ -84,7 +84,7 @@ namespace AOC6.Tests
                         continue;
                     prod += value;
                 }
-                Assert.Equal(7128,prod);
+                Assert.Equal(3640,prod);
             }
         }
     }

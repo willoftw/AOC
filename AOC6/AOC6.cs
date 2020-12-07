@@ -44,7 +44,7 @@ namespace AOC6
                         }
                         ret.Add(groupAnswers);
                     }
-                ret.Add(subanswer.Distinct().Count());
+                //ret.Add(subanswer.Distinct().Count());
             }
 
 
