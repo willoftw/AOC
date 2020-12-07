@@ -25,6 +25,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AOC6", "AOC6\AOC6.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AOC6.Tests", "AOC6.Tests\AOC6.Tests.csproj", "{D750BCE7-21A2-47AF-A627-40E0886C4B34}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AOC7.Tests", "AOC7.Tests\AOC7.Tests.csproj", "{0DDD7415-74B3-4CD1-B13D-F6F41BAC6589}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AOC7", "AOC7\AOC7.csproj", "{2B8C7682-E757-4268-8E9E-B1F6BA6FECB4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -79,5 +83,13 @@ Global
 		{D750BCE7-21A2-47AF-A627-40E0886C4B34}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D750BCE7-21A2-47AF-A627-40E0886C4B34}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D750BCE7-21A2-47AF-A627-40E0886C4B34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DDD7415-74B3-4CD1-B13D-F6F41BAC6589}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DDD7415-74B3-4CD1-B13D-F6F41BAC6589}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DDD7415-74B3-4CD1-B13D-F6F41BAC6589}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DDD7415-74B3-4CD1-B13D-F6F41BAC6589}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B8C7682-E757-4268-8E9E-B1F6BA6FECB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B8C7682-E757-4268-8E9E-B1F6BA6FECB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B8C7682-E757-4268-8E9E-B1F6BA6FECB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B8C7682-E757-4268-8E9E-B1F6BA6FECB4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
