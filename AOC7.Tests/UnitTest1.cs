@@ -36,9 +36,9 @@ namespace AOC7.Tests
         [Fact]
         public void ShouldReturnCorrectAmmountOfValidBags()
         {
-            using (AOC aoc = new AOC())
+            using (AOC aoc = new AOC(input))
             {
-                int result = aoc.LetsTryThis(input);
+                int result = aoc.LetsTryThis();
                 Assert.Equal(4, result);
 
             }
@@ -47,9 +47,9 @@ namespace AOC7.Tests
         [Fact]
         public void ShouldReturnCorrectAmmountOfValidBagsForFullDataset()
         {
-            using (AOC aoc = new AOC())
+            using (AOC aoc = new AOC(input_2))
             {
-                int result = aoc.LetsTryThis(input_2);
+                int result = aoc.LetsTryThis();
                 //Console.WriteLine(result);
                 Assert.Equal(248, result);
 
