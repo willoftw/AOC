@@ -32,10 +32,14 @@ namespace AOC8.Tests
             return ret;
         }
 
-        [Fact]
-        public void ShouldParseDataCorrectly()
+        [Theory]
+        [InlineData("data.txt", 9)]
+        [InlineData("data_2.txt",660)]
+        [InlineData("data_3.txt",9)]
+        public void ShouldParseDataCorrectly(string datafile, int result)
         {
-            Assert.Equal(9,input.Count());
+            List<string> input = ParseInput(datafile);
+            Assert.Equal(result,input.Count());
         }
 
         [Fact]
@@ -61,13 +65,17 @@ namespace AOC8.Tests
             }
         }
 
-        [Fact]
-        public void ShouldValidateDataCorrectly()
+        [Theory]
+        [InlineData("data.txt", false)]
+        [InlineData("data_2.txt",false)]
+        [InlineData("data_3.txt",true)]
+        public void ShouldValidateDataCorrectly(string datafile, bool result)
         {
+            List<string> input = ParseInput(datafile);
             using (AOC aoc = new AOC())
             {
                 var data = aoc.ProcessData(input);
-                Assert.Equal(false,aoc.ValidateInstructions(data));
+                Assert.Equal(result,aoc.ValidateInstructions(data));
             }
         }
 

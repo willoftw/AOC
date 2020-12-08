@@ -7,9 +7,7 @@ namespace AOC8
     public class AOC : IDisposable
     {
         public void Dispose()
-        {
-        }
-        //nop +0
+        {}
         public List<Tuple<int, string, int>> ProcessData(List<string> input)
         {
             List<Tuple<int, string, int>> ret = new List<Tuple<int, string, int>>();
@@ -49,7 +47,6 @@ namespace AOC8
                         break;
                 }
                 i++;
-
             }
             return accumulator;
         }
@@ -63,7 +60,6 @@ namespace AOC8
                 int i = 0;
                 while (i<data.Count)
                 {
-
                     string instruction = data[i].Item2;
                     if (data[i].Item2 == "jmp" || data[i].Item2 == "nop"){
                         data[i] = new Tuple<int, string, int>(0, data[i].Item2 == "jmp" ? "nop":"jmp", data[i].Item3);
@@ -80,12 +76,10 @@ namespace AOC8
 
         public bool ValidateInstructions(List<Tuple<int, string, int>> data)
         {
-            //reset counts on everything
             for (int j = 0 ; j<data.Count ; j++ )
             {
                 data[j] = new Tuple<int, string, int>(0, data[j].Item2, data[j].Item3);
             }
-
             int accumulator = 0;
             int i = 0;
             while (true)
@@ -115,11 +109,7 @@ namespace AOC8
                         return true;
                     return false;
                 }
-
             }
         }
-
-
-        //should try to execute data.Count + 1 for all instructions to be valid;
     }
 }
