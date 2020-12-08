@@ -62,14 +62,50 @@ namespace AOC8.Tests
         }
 
         [Fact]
+        public void ShouldValidateDataCorrectly()
+        {
+            using (AOC aoc = new AOC())
+            {
+                var data = aoc.ProcessData(input);
+                Assert.Equal(false,aoc.ValidateInstructions(data));
+            }
+        }
+
+        [Fact]
         public void ShouldReturnCorrectAccumulatorForSecondDataSet()
         {
             using (AOC aoc = new AOC())
             {
                 var data = aoc.ProcessData(input_2);
                 int accumulator = aoc.ExecuteInstructions(data);
-                Assert.Equal(5,accumulator);
+                Assert.Equal(1915,accumulator);
                 //its not 98
+            }
+        }
+
+        [Fact]
+        public void ShouldFindValidInstructionSet()
+        {
+            using (AOC aoc = new AOC())
+            {
+                var data = aoc.ProcessData(input);
+                var validInstructions = aoc.FindValidInstructionSet(data);
+                Assert.Equal(true,aoc.ValidateInstructions(validInstructions));
+                int accumulator = aoc.ExecuteInstructions(validInstructions);
+                Assert.Equal(8,accumulator);
+            }
+        }
+
+        [Fact]
+        public void ShouldFindValidInstructionSetForSecondDataSet()
+        {
+            using (AOC aoc = new AOC())
+            {
+                var data = aoc.ProcessData(input_2);
+                var validInstructions = aoc.FindValidInstructionSet(data);
+                Assert.Equal(true,aoc.ValidateInstructions(validInstructions));
+                int accumulator = aoc.ExecuteInstructions(validInstructions);
+                Assert.Equal(944,accumulator);
             }
         }
     }
