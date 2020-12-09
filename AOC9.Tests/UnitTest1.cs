@@ -56,5 +56,22 @@ namespace AOC9.Tests
                 Assert.Equal(result,aoc.GetNotSummableValue(data,preamble));
             }
         }
+
+        [Theory]
+        [InlineData("data.txt", 5,62)]
+        [InlineData("data_2.txt", 25,76096372)]
+        //its not 135541730127163
+        //its not 135541730225161 either;
+        //its not 180648334137911 all too high
+        //its not 125113350
+        public void ShoulCalculateContigiousCorrectly(string datafile, int preamble, int result)
+        {
+            using (AOC aoc = new AOC())
+            {
+                List<string> input = ParseInput(datafile);
+                List<double> data = aoc.ProcessData(input);
+                Assert.Equal(result,aoc.GetNotSummableValue(data,preamble,true));
+            }
+        }
     }
 }
