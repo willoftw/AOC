@@ -11,13 +11,6 @@ namespace AOC8.Tests
 {
     public class UnitTest1
     {
-        List<string> input = new List<string>();
-        List<string> input_2 = new List<string>();
-        public UnitTest1()
-        {
-            input = ParseInput("data.txt");
-            input_2 = ParseInput("data_2.txt");
-        }
         public List<string> ParseInput(string filename)
         {
             List<string> ret = new List<string>();
@@ -45,6 +38,7 @@ namespace AOC8.Tests
         [Fact]
         public void ShouldProcessDataCorrectly()
         {
+            List<string> input = ParseInput("data.txt");
             using (AOC aoc = new AOC())
             {
                 var output = aoc.ProcessData(input);
@@ -54,14 +48,19 @@ namespace AOC8.Tests
             }
         }
 
-        [Fact]
-        public void ShouldReturnCorrectAccumulator()
+        
+        [Theory]
+        [InlineData("data.txt", 5)]
+        [InlineData("data_2.txt",1915)]
+        [InlineData("data_3.txt",8)]
+        public void ShouldReturnCorrectAccumulator(string datafile, int result)
         {
+            List<string> input = ParseInput(datafile);
             using (AOC aoc = new AOC())
             {
                 var data = aoc.ProcessData(input);
                 int accumulator = aoc.ExecuteInstructions(data);
-                Assert.Equal(5,accumulator);
+                Assert.Equal(result,accumulator);
             }
         }
 
@@ -79,41 +78,21 @@ namespace AOC8.Tests
             }
         }
 
-        [Fact]
-        public void ShouldReturnCorrectAccumulatorForSecondDataSet()
-        {
-            using (AOC aoc = new AOC())
-            {
-                var data = aoc.ProcessData(input_2);
-                int accumulator = aoc.ExecuteInstructions(data);
-                Assert.Equal(1915,accumulator);
-                //its not 98
-            }
-        }
 
-        [Fact]
-        public void ShouldFindValidInstructionSet()
+        [Theory]
+        [InlineData("data.txt", 8)]
+        [InlineData("data_2.txt",944)]
+        [InlineData("data_3.txt",8)]
+        public void ShouldFindValidInstructionSet(string datafile, int result)
         {
+            List<string> input = ParseInput(datafile);
             using (AOC aoc = new AOC())
             {
                 var data = aoc.ProcessData(input);
                 var validInstructions = aoc.FindValidInstructionSet(data);
                 Assert.Equal(true,aoc.ValidateInstructions(validInstructions));
                 int accumulator = aoc.ExecuteInstructions(validInstructions);
-                Assert.Equal(8,accumulator);
-            }
-        }
-
-        [Fact]
-        public void ShouldFindValidInstructionSetForSecondDataSet()
-        {
-            using (AOC aoc = new AOC())
-            {
-                var data = aoc.ProcessData(input_2);
-                var validInstructions = aoc.FindValidInstructionSet(data);
-                Assert.Equal(true,aoc.ValidateInstructions(validInstructions));
-                int accumulator = aoc.ExecuteInstructions(validInstructions);
-                Assert.Equal(944,accumulator);
+                Assert.Equal(result,accumulator);
             }
         }
     }
