@@ -69,7 +69,8 @@ namespace AOC10.Tests
         [Theory]
         [InlineData("data.txt",8)]
         [InlineData("data_2.txt",19208)]
-        [InlineData("data_3.txt",19208)]
+        [InlineData("data_3.txt",18512297918464)]
+        //its not 10578455953408;
         public void ShouldCalculateCorrectConsectutiveDiffs(string filename, int expect)
         {
             List<string> input = ParseInput(filename);
